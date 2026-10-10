@@ -1,1 +1,89 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Still Playing</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #080808;
+      color: #888;
+      font-family: "Courier New", monospace;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 560px;
+      padding: 35px;
+      text-align: center;
+      border: 1px solid #292929;
+      background: #0d0d0d;
+    }
+
+    h1 {
+      color: #ddd;
+      font-size: 21px;
+      font-weight: normal;
+      letter-spacing: 5px;
+    }
+
+    p {
+      color: #666;
+      font-size: 13px;
+      line-height: 2.2;
+    }
+
+    .status {
+      margin-top: 35px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>STILL PLAYING</h1>
+
+    <p>
+      Archive status: NORMAL<br>
+      No anomalies detected.<br>
+      Nothing unusual has been recorded.
+    </p>
+
+    <p class="status">SYSTEM OPERATIONAL</p>
+
+    <!-- You are listening. Are you observing? -->
+  </main>
+
+  <audio id="archive" loop preload="auto">
+    <source
+      src="https://res.cloudinary.com/neuqmdea/video/upload/v1791621807/Jai_Jai_Ram.mp3"
+      type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("archive");
+
+    // Browsers may block autoplay until the visitor interacts.
+    audio.play().catch(() => {
+      document.addEventListener("click", function startAudio() {
+        audio.play().catch(() => {});
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
+
